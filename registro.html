@@ -77,15 +77,15 @@
         <form id="registro" class="registro" action="index.html" method="post">
             <div id="datos_usuario" class="registro caja clearfix">
                 <div class="campo">
-                    <label for="nombre">Nombre:</label>
+                    <label for="nombre" required>Nombre:</label>
                     <input type="text" id="nombre" name="nombre" placeholder="tu nombre">
                 </div>
                 <div class="campo">
-                        <label for="apellido">Apellido:</label>
+                        <label for="apellido" required>Apellido:</label>
                         <input type="text" id="apellido" name="apellido" placeholder="tu apellido">
                 </div>
                 <div class="campo">
-                        <label for="email">Email:</label>
+                        <label for="email" required>Email:</label>
                         <input type="email" id="email" name="email" placeholder="tu email">
                 </div>
                 <div id="error"></div>
@@ -251,10 +251,8 @@
                             </div>
                             <input type="submit" id="btnRegistro" value="Pagar" class="button">
                         </div><!--total-->
-
-                    </div>
-
-                </div>
+                    </div><!--caja-->
+                </div><!--resumen-->
         </form>
 
 
@@ -301,7 +299,7 @@
         crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
