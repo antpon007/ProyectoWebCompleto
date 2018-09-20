@@ -1,4 +1,9 @@
 $(function(){
+
+    //lettering
+    $('.nombre-sitio').lettering();
+
+    //Programa de conferencias
     $('.programa-evento .info-curso').hide();
     $('.programa-evento .info-curso:first').show();
     $('.menu-programa a:first').addClass('activo');
@@ -10,4 +15,20 @@ $(function(){
         $(enlace).fadeIn(700);
         return false;
     });
+
+    //animaciones para los numeros
+    $('.resumen-evento li:nth-child(1) p').animateNumber({number:6},6000);
+    $('.resumen-evento li:nth-child(2) p').animateNumber({number:15},15000);
+    $('.resumen-evento li:nth-child(3) p').animateNumber({number:3},3000);
+    $('.resumen-evento li:nth-child(4) p').animateNumber({number:9},9000);
+
+    //cuenta regresiva
+
+    $('.cuenta-regresiva').countdown('2018/12/10 09:00:00',(event)=>{
+        $('#dias').html(event.strftime('%D'));
+        $('#horas').html(event.strftime('%H'));
+        $('#minutos').html(event.strftime('%M'));
+        $('#segundos').html(event.strftime('%S'));
+    })
+    
 });
