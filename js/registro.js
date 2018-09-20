@@ -33,25 +33,25 @@ $(function(){
 
         function validarCampos(){
             if ($(this).val()==''){
-                errorDiv.show().attr('style','display: block');
+                errorDiv.show().css({'display': 'block'});
                 errorDiv.html('Este campo es requerido');
-                $(this).css('border' ,'1px solid red');
-                errorDiv.css('border' ,'1px solid red');
+                $(this).css({'border':'1px solid red'});
+               // errorDiv.css({'border':'1px solid red'});
             }else{
                 errorDiv.hide();
-                $(this).css('border' ,'1px solid #ccc');
+                $(this).css({'border':'1px solid #ccc'});
             }
         }
 
         function validarEmail(){
             if ($(this).val().indexOf('@')<0){
-                errorDiv.show().attr('style','display: block');
+                errorDiv.show().css({'display':'block'});
                 errorDiv.html('Debe contener al menos una @');
-                $(this).css('border' ,'1px solid red');
-                errorDiv.css('border' ,'1px solid red');
+                $(this).css({'border':'1px solid red'});
+                //errorDiv.css({'border':'1px solid red'});
             }else{
                 errorDiv.hide();
-                $(this).css('border' ,'1px solid #ccc');
+                $(this).css({'border':'1px solid #ccc'});
             }
         }
 
@@ -85,9 +85,10 @@ $(function(){
                     if (cantEtiquetas >= 1){
                         listadoProductos.push(`${cantEtiquetas} Etiquetas`)
                     }
-                    lista_productos.show().attr('style','display: block');
-                    lista_productos.val('');
-                    listadoProductos.forEach((element,index,array) => lista_productos.html( lista_productos.html() +element + '<br/>'));
+                    lista_productos.show().css({'display':'block'});
+                    lista_productos.html('');
+                    //listadoProductos.forEach((element,index,array) => lista_productos.html( lista_productos.html() +element + '<br/>'));
+                    $.each(listadoProductos,(index,element) => lista_productos.append( `${element} <br/>`))
                     suma.html(`$ ${totalPagar.toFixed(2)}`);
 
             }   
@@ -111,7 +112,7 @@ $(function(){
             $('#viernes').hide();
             $('#sabado').hide();
             $('#domingo').hide();
-            diasElegidos.forEach((element, index, array)=>$(`#${element}`).show().attr('style','display: block') );
+            diasElegidos.forEach((element, index, array)=>$(`#${element}`).show().css({'display':'block'}) );
         }
 
 });

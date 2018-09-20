@@ -439,8 +439,6 @@ div.programa-evento{
 }
 nav.menu-programa{
     width: 100%;
-    border-bottom: 1px solid #fe4918;
-    padding-bottom: 10px;
 }
 nav.menu-programa a{
     font-family: 'Oswald', sans-serif;
@@ -450,7 +448,25 @@ nav.menu-programa a{
     text-decoration: none;
     margin-bottom: 10px;
     font-size: 1.2em;
+    position: relative;    
+    border-bottom: 1px solid #fe4918;
+    padding-bottom: 10px;
 }
+nav.menu-programa a.activo::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    width: 30px;
+    background-image: url('../img/talleres-flecha.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    bottom: -20px;
+}
+
 @media only screen and (min-width:768px){
     nav.menu-programa{
         display: table;
