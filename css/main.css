@@ -385,7 +385,7 @@ div.logo img{
 nav.navegacion-principal a{
     font-family: 'Oswald', sans-serif;
     color: #fff;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
     text-decoration: none;
     transition: all .4s ease;
@@ -413,14 +413,20 @@ nav.navegacion-principal a:last-child:hover{
 @media only screen and (min-width:480px){
  div.navegacion-principal{
         padding-top: 65px;
- } 
+ }
+ 
 }
 @media only screen and (min-width:620px){
     div.navegacion-principal{
            padding-top: 85px;
-       } 
-   }
+    } 
+     
+}
 @media only screen and (min-width:768px){
+    div.navegacion-principal{
+        display: block;
+    }
+
     nav.navegacion-principal{
         display: block;
         width: 67%;
@@ -433,6 +439,7 @@ nav.navegacion-principal a:last-child:hover{
         width: auto;
         text-align: center;
         margin: 0;
+        font-size: 13px;
     }
     div.navegacion-principal{
         padding: 0;
@@ -460,6 +467,11 @@ div.menu-movil:hover{
     div.menu-movil{
         display: none;
         width: 100%;
+    }
+}
+@media only screen and (min-width:480px){
+    div.menu-movil{
+       padding-top: 8px;
     }
 }
 
