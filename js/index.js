@@ -60,4 +60,6 @@ $(function () {
     $('#segundos').html(event.strftime('%S'));
   })
 
+  $('.invitado-info').colorbox({inline:true,width:"50%"});
+
 });
