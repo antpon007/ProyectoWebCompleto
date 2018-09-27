@@ -80,60 +80,7 @@
 
   </section>
   <!--.programa-->
-  <section class="invitados contenedor seccion ocultar">
-    <h2>Nuestros Invitados</h2>
-    <ul class="lista-invitados clearfix">
-      <li>
-        <div class="invitado">
-          <a href="img/invitado1.jpg" data-lightbox="galeria">
-            <img src="img/invitado1.jpg">
-          </a>
-          <p>Armando Obredor</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <a href="img/invitado2.jpg" data-lightbox="galeria">
-             <img src="img/invitado2.jpg">
-          </a>
-          <p>Orlando Batista</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <a href="img/invitado3.jpg" data-lightbox="galeria">
-             <img src="img/invitado3.jpg">
-          </a>
-          <p>Adrian Baldovino</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <a href="img/invitado4.jpg" data-lightbox="galeria">
-            <img src="img/invitado4.jpg">
-          </a>
-          <p>Jhonatan Rodriguez</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-            <a href="img/invitado5.jpg" data-lightbox="galeria">
-                <img src="img/invitado5.jpg">
-            </a>
-            <p>Antonio Ponce</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <a href="img/invitado6.jpg" data-lightbox="galeria">
-            <img src="img/invitado6.jpg">
-          </a>
-          <p>Julio Ponce</p>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <!--invitados-->
+  <?php include_once 'includes/templates/invitados.php'; ?>
   <div class="contador parallax ocultar">
     <div class="contenedor">
       <ul class="resumen-evento clearfix">

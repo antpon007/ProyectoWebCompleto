@@ -2,6 +2,11 @@ $(function () {
 
   //lettering
   $('.nombre-sitio').lettering();
+  // Agregar clase a menú
+  $('body.conferencias .navegacion-principal a:contains("Conferencias")').addClass('activo');
+  $('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
+  $('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
+  
   //menu fijo
   var windowHeight = $(window).height();
   var barraAltura = $('.barra').innerHeight();
@@ -59,7 +64,9 @@ $(function () {
     $('#minutos').html(event.strftime('%M'));
     $('#segundos').html(event.strftime('%S'));
   })
-
-  $('.invitado-info').colorbox({inline:true,width:"50%"});
-
+  if(document.getElementsByClassName('invitado-info').length>0){
+    console.log(document.getElementsByClassName('invitado-info'));
+    $('.invitado-info').colorbox({inline:true,width:"50%"});
+  }
+  
 });

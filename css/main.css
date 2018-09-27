@@ -463,6 +463,9 @@ div.menu-movil{
 div.menu-movil:hover{
     cursor: pointer;
 }
+.activo{
+    border-bottom: 2px solid #fe4918;
+}
 @media only screen and (min-width:768px){
     div.menu-movil{
         display: none;
@@ -542,6 +545,8 @@ nav.menu-programa a.activo::after{
     background-position: top center;
     bottom: -20px;
 }
+
+
 
 @media only screen and (min-width:768px){
     nav.menu-programa{
