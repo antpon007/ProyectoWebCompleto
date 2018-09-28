@@ -21,56 +21,64 @@
       <div class="contenedor">
         <div class="programa-evento">
           <h2>Programa del Evento</h2>
+          <?php 
+      try{
+
+        require_once('includes/funciones/bd_conexion.php');
+        $sql = "SELECT * FROM `categoria_evento` order by `id_categoria` desc";
+        $resultado = $conn->query($sql);
+        $sql ="";
+      }catch(\Exception $e){
+          echo $e->getMessage();
+      }
+    ?>
           <nav class="menu-programa">
-            <a href="#talleres"><i class="fa fa-code"></i>Talleres</a>
-            <a href="#conferencias"><i class="fa fa-comment"></i>Conferencias</a>
-            <a href="#seminarios"><i class="fa fa-university"></i>Seminarios</a>
+            <?php while($cat = $resultado->fetch_array(MYSQLI_ASSOC)){ 
+              $categoria = $cat['cat_evento'];?>
+              <a href="#<?php echo strtolower($categoria); ?>">
+                  <i class="fa <?php echo $cat['icono']; ?>"></i><?php echo $categoria; ?>
+              </a>
+              <?php 
+                  try{
+                    $sql .= "SELECT id_evento, nombre_evento, fecha_evento, hora_evento, cat_evento, ";
+                    $sql .= "nombre, apellido,icono ";
+                    $sql .= "FROM eventos INNER JOIN categoria_evento ";
+                    $sql .= "ON eventos.id_categoria=categoria_evento.id_categoria INNER JOIN invitados ";
+                    $sql .= "ON eventos.id_invitado=invitados.id_invitado ";
+                    $sql .= "AND eventos.id_categoria=" . $cat['id_categoria'] . " ";
+                    $sql .= "ORDER BY `id_evento` LIMIT 2; ";
+                  }catch(\Exception $e){
+                      echo $e->getMessage();
+                  }
+                ?>
+            <?php } ?>
+            
           </nav>
-          <div id="talleres" class="info-curso clearfix">
-            <div class="detalle-evento">
-              <h3>HTML5, CSS3 y JavaScript</h3>
-              <p><i class="fa fa-clock"></i>16:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i>Manuel Ricardo De Avila Vasquez</p>
-            </div>
-            <div class="detalle-evento">
-              <h3>Responsive Web Design</h3>
-              <p><i class="fa fa-clock"></i>20:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i>Julio Alfonso Meza Iglesia</p>
-            </div>
-            <a href="#" class="button float-right ">Ver todos</a>
-          </div><!--talleres-->
-          <div id="conferencias" class="info-curso clearfix">
-                <div class="detalle-evento">
-                  <h3>¿Como aplicar POL (Lonchu-oriented programming)? </h3>
-                  <p><i class="fa fa-clock"></i>10:00 hrs</p>
-                  <p><i class="fa fa-calendar"></i>10 de Dic</p>
-                  <p><i class="fa fa-user"></i>Manuel Ricardo De Avila Vasquez</p>
-                </div>
-                <div class="detalle-evento">
-                  <h3>Aplicando el ciclo infito, FOR en cascada</h3>
-                  <p><i class="fa fa-clock"></i>12:00 hrs</p>
-                  <p><i class="fa fa-calendar"></i>10 de Dic</p>
-                  <p><i class="fa fa-user"></i>Ing. Jhonatan Javier Rodriguez</p>
-                </div>
-                <a href="#" class="button float-right ">Ver todos</a>
-          </div><!--conferencias-->
-          <div id="seminarios" class="info-curso clearfix">
-                <div class="detalle-evento">
-                  <h3>Dependencia laboral: Inyectar errores con timer</h3>
-                  <p><i class="fa fa-clock"></i>14:00 hrs</p>
-                  <p><i class="fa fa-calendar"></i>11 de Dic</p>
-                  <p><i class="fa fa-user"></i>Manuel Ricardo De Avila Vasquez</p>
-                </div>
-                <div class="detalle-evento">
-                  <h3>Dependencia laboral: Pruebas en caliente</h3>
-                  <p><i class="fa fa-clock"></i>16:00 hrs</p>
-                  <p><i class="fa fa-calendar"></i>11 de Dic</p>
-                  <p><i class="fa fa-user"></i>Julio Adolfo Ponce Attie</p>
-                </div>
-                <a href="#" class="button float-right ">Ver todos</a>
-          </div><!--conferencias-->
+          <?php $conn->multi_query($sql); 
+          do{ 
+              $resultado = $conn->store_result();
+              $row = $resultado->fetch_all(MYSQLI_ASSOC);?>
+              <?php $i=0;
+              foreach($row as $evento):
+                if($i % 2 == 0):?>
+                  <div id="<?php echo strtolower($evento['cat_evento']); ?>" class="info-curso clearfix">
+              <?php endif; ?>
+                    <div class="detalle-evento">
+                      <h3><?php echo htmlspecialchars($evento['nombre_evento']); ?></h3>
+                      <p><i class="fa fa-clock"></i><?php echo $evento['hora_evento']; ?> hrs</p>
+                      <p><i class="fa fa-calendar"></i><?php echo $evento['fecha_evento']; ?></p>
+                      <p><i class="fa fa-user"></i><?php echo $evento['nombre']; ?></p>
+                    </div>
+                <?php if($i % 2 == 1):?>
+                    <a href="calendario.php#calendarioSeccion" class="button float-right ">Ver todos</a>
+                  </div>
+                <?php endif; 
+                $i++;?>
+                    
+              <?php endforeach;
+              $resultado->free();
+          }while($conn->more_results() && $conn->next_result());?>
+          
         </div>
         <!--programa-evento-->
       </div>
@@ -114,7 +122,7 @@
               <li>Todas las Conferencias</li>
               <li>Todos los talleres</li>
             </ul>
-            <a href="#" class="button hollow">Comprar</a>
+            <a href="registro.php#registroSeccion" class="button hollow">Comprar</a>
           </div>
         </li>
         <li>
@@ -126,7 +134,7 @@
               <li>Todas las Conferencias</li>
               <li>Todos los talleres</li>
             </ul>
-            <a href="#" class="button ">Comprar</a>
+            <a href="registro.php#registroSeccion" class="button ">Comprar</a>
           </div>
         </li>
         <li>
@@ -138,7 +146,7 @@
               <li>Todas las Conferencias</li>
               <li>Todos los talleres</li>
             </ul>
-            <a href="#" class="button hollow">Comprar</a>
+            <a href="registro.php#registroSeccion" class="button hollow">Comprar</a>
           </div>
         </li>
       </ul>

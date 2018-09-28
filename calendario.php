@@ -1,6 +1,6 @@
 <?php include_once 'includes/templates/header.php'; ?>
 
-  <section class="seccion contenedor ocultar">
+  <section id="calendarioSeccion" class="seccion contenedor ocultar">
     <h2>Calendario de Eventos</h2>
     <?php 
       try{
