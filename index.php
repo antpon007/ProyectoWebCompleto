@@ -67,7 +67,7 @@
                       <h3><?php echo htmlspecialchars($evento['nombre_evento']); ?></h3>
                       <p><i class="fa fa-clock"></i><?php echo $evento['hora_evento']; ?> hrs</p>
                       <p><i class="fa fa-calendar"></i><?php echo $evento['fecha_evento']; ?></p>
-                      <p><i class="fa fa-user"></i><?php echo $evento['nombre']; ?></p>
+                      <p><i class="fa fa-user"></i><?php echo $evento['nombre'] . " " . $evento['apellido']; ?></p>
                     </div>
                 <?php if($i % 2 == 1):?>
                     <a href="calendario.php#calendarioSeccion" class="button float-right ">Ver todos</a>

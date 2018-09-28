@@ -15,13 +15,15 @@ $(function(){
         var calcular = $('#calcular');
         var errorDiv = $('#error');
         var botonRegistro = $('#btnRegistro');
+        var totalPedido = $('#total_pedido');
         var lista_productos = $('#lista-productos');
         var suma = $('#suma-total');
 
         //Extras
         var camisas = $('#camisa_evento');
         var etiquetas = $('#etiquetas');
-
+        botonRegistro.addClass('inactivo');
+        botonRegistro.prop("disabled", true );
         calcular.on('click',calcularMontos);
         pase_dia.on('blur',mostrarDias);
         pase_dosdias.on('blur',mostrarDias);
@@ -90,7 +92,9 @@ $(function(){
                     //listadoProductos.forEach((element,index,array) => lista_productos.html( lista_productos.html() +element + '<br/>'));
                     $.each(listadoProductos,(index,element) => lista_productos.append( `${element} <br/>`))
                     suma.html(`$ ${totalPagar.toFixed(2)}`);
-
+                    botonRegistro.removeClass('inactivo');
+                    botonRegistro.prop("disabled", false );
+                    totalPedido.val(totalPagar.toFixed(2));
             }   
         }//fn calcularMontos
 
