@@ -65,8 +65,10 @@ $(function () {
     $('#segundos').html(event.strftime('%S'));
   })
   if(document.getElementsByClassName('invitado-info').length>0){
-    console.log(document.getElementsByClassName('invitado-info'));
     $('.invitado-info').colorbox({inline:true,width:"50%"});
+  }
+  if(document.getElementsByClassName('button_newsletter').length>0){
+    $('.button_newsletter').colorbox({inline:true,width:"50%"});
   }
   
 });

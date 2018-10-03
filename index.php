@@ -200,7 +200,7 @@
     <div class="contenido contenedor">
       <p>Regístrate al newsletter:</p>
       <h3>BrqWebCamp</h3>
-      <a href="#" class="button transparente">Registro</a>
+      <a href="#mc_embed_signup" class="button_newsletter button transparente">Registro</a>
     </div>
     <!--contenido-->
   </div>
