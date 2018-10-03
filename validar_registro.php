@@ -1,5 +1,32 @@
-<pre>
-    <?php
-        var_dump($_POST);
-    ?>
-</pre>
+<?php include_once 'includes/templates/header.php';?>
+
+  <section id="registroSeccion" class="seccion contenedor">
+    <h2>Resumen de Registro</h2>
+    <?php if(isset($_POST['submit'])): 
+      $nombre = $_POST['nombre'];
+      $apellido = $_POST['apellido'];
+      $email = $_POST['email'];
+      $regalo = $_POST['regalo'];
+      $total_pedido = $_POST['total_pedido'];
+      $fecha = date('Y-m-d H:i:s');
+
+      //pedidos
+      $boletos = $_POST['boletos'];
+      $camisas = $_POST['pedido_camisas'];
+      $etiquetas = $_POST['pedido_etiquetas'];
+      include_once 'includes/funciones/funciones.php';
+      $pedido = productos_json($boletos,$camisas,$etiquetas);
+      echo "<pre>";
+          var_dump($pedido);
+      echo "</pre>";
+      ?>
+      <pre>
+          <?php
+              var_dump($_POST);
+          ?>
+      </pre>
+    <?php endif; ?>
+  </section>
+
+<?php include_once 'includes/templates/footer.php';?>
+
