@@ -28,7 +28,7 @@
       <!--menu-->
     </div>
     <!--contenedor-->
-    <p class="copyright">Todos los derechos reservados &copy; BRQWEBCAMP 2018.</p>
+    <p class="copyright">Todos los derechos reservados sda &copy; BRQWEBCAMP 2018.</p>
   </footer>
   <!--fite-footer-->
 
