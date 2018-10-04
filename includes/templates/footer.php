@@ -29,7 +29,7 @@
       <!--menu-->
     </div>
     <!--contenedor-->
-    <p class="copyright">Todos los derechos reservados &copy; BRQWEBCAMP 2018.-2</p>
+    <p class="copyright">Todos los derechos reservados as &copy; BRQWEBCAMP 2018.-2</p>
   </footer>
   <!--fite-footer-->
 
